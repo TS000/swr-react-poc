@@ -7,6 +7,25 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+main div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.Card {
+  padding: 20px;
+  width: 300px;
+  border: 3px red solid;
+  margin: 10px;
+}
+
+.nav {
+  position: relative;
+  margin: 20px;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
