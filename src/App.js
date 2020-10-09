@@ -9,36 +9,29 @@ function App() {
 
     const url = 'https://rickandmortyapi.com/api/character/8';
     const { data, error } = useSWR(url, fetcher)
-    console.log(data)
 
-
-
-
-    if (error) return <h1>Something went wrong!</h1>
-    if (!data) return <h1>Loading...</h1>
+  if (error) return <h1>Email Anthony</h1>
+  if (!data) return <h1>Loading...</h1>
 
   return (
-    <main className="App">
       <Router>
-        <div className="nav">
+        <div className="App">
+          <Link to="/">
+            <button>Home</button>
+          </Link>
           <Link to="/profile">
-            <button>
-                Profile
-            </button>
+            <button>Profile</button>
           </Link>
           <Link to="/meetings">
-            <button>
-                Meetings
-            </button>
+            <button>Meetings</button>
           </Link>
           <Switch>
           <Route path="/profile">
-            <Profile id={data.id} name={data.name} image={data.image}  />
+            <Profile { ...data }  />
           </Route>
           </Switch>
         </div>
       </Router>
-    </main>
   );
 }
 
