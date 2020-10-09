@@ -1,10 +1,10 @@
 import React from 'react'
 
+export const Member = ({ ...props}) => {
+    const {id, name, image, gender, species} = props;
 
-export const Member = ({ image, name, id}) => {
-   
     return (
-        <div className='Card'>
+           <div className='Card'>
             <img
                 className='Card--image'
                 src={image}
@@ -13,6 +13,8 @@ export const Member = ({ image, name, id}) => {
             
             <span className='Card--details'>
                 <h3>{name}</h3>
+                <p>Member ID: {id}</p>
+                <p>Gender: {gender}</p>
             </span>
         
         </div>
