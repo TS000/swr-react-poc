@@ -21,7 +21,8 @@ main div {
   margin: 10px;
 }
 
-.nav {
+.App {
+  position: flex;
   position: relative;
   margin: 20px;
 }
