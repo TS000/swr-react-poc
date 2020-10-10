@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from "react"
 
 export const Member = ({ ...props}) => {
-    const {id, name, image, gender, species} = props;
+    const {id, name, image, gender} = props;
 
     return (
            <div className='Card'>
@@ -16,7 +16,6 @@ export const Member = ({ ...props}) => {
                 <p>Member ID: {id}</p>
                 <p>Gender: {gender}</p>
             </span>
-        
         </div>
     )
 }
