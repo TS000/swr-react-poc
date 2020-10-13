@@ -17,7 +17,7 @@ main div {
 .Card {
   padding: 20px;
   width: 300px;
-  border: 3px red solid;
+  height: 300px;
   margin: 10px;
 }
 

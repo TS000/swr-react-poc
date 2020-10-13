@@ -1,6 +1,4 @@
 import React from 'react'
-import { Member } from './Member'
-
 
 export const Home = ({ ...props}) => {
     const {name, created} = props;

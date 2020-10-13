@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 
 export const Member = ({ ...props}) => {
     const {id, name, image, gender} = props;
