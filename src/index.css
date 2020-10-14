@@ -35,3 +35,13 @@ code {
   height: 100px;
   margin: 20px;
 }
+
+.nav {
+  display: grid;
+  grid-template-rows: auto;
+}
+
+.nav button {
+  width: 150px;
+  margin: 20px;
+}
