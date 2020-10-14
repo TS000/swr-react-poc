@@ -1,59 +1,75 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import useSWR, { cache } from "swr";
+import useSWR, { cache, mutate } from "swr";
 import { Profile } from "./pages/Profile";
 import { Home } from "./pages/Home";
-
-//TODO add map to cache.get
+import { ProfileWCache } from "./pages/ProfileWCache";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 const App = () => {
-  const [ currentMember, setCurrentMember ] = useState(1);
+  const [currentMember, setCurrentMember] = useState(1);
   const url = `https://rickandmortyapi.com/api/character/${currentMember}`;
-  let nuString = JSON.stringify(cache.get(url))
-    console.log(`member cache: ${nuString}`)
+
+  // config
+
   const { data, error } = useSWR(url, fetcher);
-  // const [ isLoading, setIsLoading ] = useState(true)
-  const stringLengths = (...args) => args.map(x => x.length);
+  if (error) return <div>failed to load</div>;
+  if (!data)
+    return (
+      <h1>
+        <strong>loading...</strong>
+      </h1>
+    );
 
-  if(data){
-  console.log(stringLengths(nuString))
-  }
-
-  // function cacheCheck() {
-  //   if(data){
-  //     if(nuString.includes("false")){
-  //       setIsLoading(true)
-  //     }
-  //     console.log(nuString)
-  //     console.log(`New profile: ${isLoading}`)
-  //   }
-  // }
+  // requests
 
   const increment = () => {
     if (currentMember >= 1) {
       setCurrentMember(currentMember + 1);
-      // cacheCheck();
     }
-}
+  };
 
-  const decrement = () =>  {
+  const decrement = () => {
     if (currentMember <= 1) {
       return;
-    }else{
-    setCurrentMember(currentMember - 1);
-    // cacheCheck();
-  }
-}
+    } else {
+      setCurrentMember(currentMember - 1);
+    }
+  };
 
-if (error) return <div>failed to load</div>
+  // mutations
+
+  const mutations = (key) => {
+    mutate(
+      key,
+      fetch(key).then((res) => res.json())
+    );
+  };
+
+  const futureCache = () => {
+    if (currentMember >= 1) {
+      const crystalBall = currentMember + 2;
+      mutations(`https://rickandmortyapi.com/api/character/${crystalBall}`);
+      setCurrentMember(currentMember + 1);
+    }
+  };
+
+  // log cache
+
+  const getCache = () => {
+    const nuString = cache.get(url);
+    console.table(nuString, ["Value"]);
+  };
 
   return (
     <>
       <button onClick={() => decrement()}>Previous Member</button>
       <button onClick={() => increment()}>Next Member</button>
+      <button onClick={() => futureCache()}>Next Member w/ pre-cache</button>
       <button onClick={() => cache.clear()}>Clear Cache</button>
+      {/* <button onClick={() => mutations()}>Logout</button> */}
+      <button onClick={() => getCache()}>Get Current Cache</button>
 
       <Router>
         <div className="App">
@@ -66,23 +82,22 @@ if (error) return <div>failed to load</div>
           <Link to="/profile-with-cache">
             <button>Profile - With Cache</button>
           </Link>
-        
+
           <Switch>
             <Route path="/profile">
-              <Profile {...data } />
+              <Profile {...data} />
             </Route>
             <Route path="/profile-with-cache">
-              <Profile {...data } />
+              <ProfileWCache {...data} />
             </Route>
             <Route path="/">
               <Home {...data} />
             </Route>
-            
           </Switch>
         </div>
       </Router>
     </>
   );
-}
+};
 
 export default App;

@@ -11,11 +11,11 @@ export const Member = ({ ...props}) => {
                 alt={id}
             />
             
-            <span className='Card--details'>
+            <div className='Card--details'>
                 <h3>{name}</h3>
                 <p>Member ID: {id}</p>
                 <p>Gender: {gender}</p>
-            </span>
+            </div>
         </div>
     )
 }

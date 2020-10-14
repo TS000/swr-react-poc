@@ -15,9 +15,7 @@ main div {
 }
 
 .Card {
-  padding: 20px;
   width: 300px;
-  height: 300px;
   margin: 10px;
 }
 
@@ -30,4 +28,10 @@ main div {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  margin: 20px;
 }
