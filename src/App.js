@@ -66,38 +66,6 @@ const App = () => {
 
   return (
     <div style={{ padding: 40 }}>
-      <div className="nav">
-        <h1>
-          The Purpose of this POC is to investigate SWR and it's caching
-          abilities. Repo{" "}
-          <a href="https://github.com/TS000/swr-react-poc">Here</a>
-        </h1>
-        <p>
-          You will want to open your dev tools. Also turn off network cache.
-        </p>
-        <p>"Next Member" hits the API for a new member each click</p>
-        <p>"Previous Member" pulls from the cache each click</p>
-        <p>
-          One thing to try is to click the "Profile - No Cache" button, which
-          will take you to a new page with an uncached member. Notice the
-          Loading text that flashes as you move through members.
-        </p>
-        <p>
-          The "Next Member w/ Pre Cache" button will look ahead and make a call
-          and add a particular data instance to the cache allowing a user in this POC to
-          move through members without "Loading..." alerts, even with a cleared
-          cache. <strong>Magic.</strong>
-        </p>
-        <p>
-          Clicking too quickly will annoy Rick and the API will be throttled.
-        </p>
-        <button onClick={() => decrement()}>Previous Member</button>
-        <button onClick={() => increment()}>Next Member</button>
-        <button onClick={() => futureCache()}>Next Member w/ pre-cache</button>
-        <button onClick={() => cache.clear()}>Clear Cache</button>
-        {/* <button onClick={() => mutations()}>Logout</button> */}
-        <button onClick={() => getCache()}>Get Current Cache</button>
-      </div>
       <div className="App">
         <h3>Pages</h3>
         <Router>
@@ -123,6 +91,38 @@ const App = () => {
             </Route>
           </Switch>
         </Router>
+      </div>
+      <div className="nav">
+      <button onClick={() => decrement()}>Previous Member</button>
+        <button onClick={() => increment()}>Next Member</button>
+        <button onClick={() => futureCache()}>Next Member w/ pre-cache</button>
+        <button onClick={() => cache.clear()}>Clear Cache</button>
+        {/* <button onClick={() => mutations()}>Logout</button> */}
+        <button onClick={() => getCache()}>Get Current Cache</button>
+        <h1>
+          The Purpose of this POC is to investigate SWR and it's caching
+          abilities. Repo{" "}
+          <a href="https://github.com/TS000/swr-react-poc">Here</a>
+        </h1>
+        <p>
+          You will want to open your dev tools. Also turn off network cache.
+        </p>
+        <p>"Next Member" hits the API for a new member each click</p>
+        <p>"Previous Member" pulls from the cache each click</p>
+        <p>
+          One thing to try is to click the "Profile - No Cache" button, which
+          will take you to a new page with an uncached member. Notice the
+          Loading text that flashes as you move through members.
+        </p>
+        <p>
+          The "Next Member w/ Pre Cache" button will look ahead and make a call
+          and add a particular data instance to the cache allowing a user in this POC to
+          move through members without "Loading..." alerts, even with a cleared
+          cache. <strong>Magic.</strong>
+        </p>
+        <p>
+          Clicking too quickly will annoy Rick and the API will be throttled.
+        </p>
       </div>
     </div>
   );
