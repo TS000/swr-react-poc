@@ -118,7 +118,7 @@ const App = () => {
           The "Next Member w/ Pre Cache" button will look ahead and make a call
           and add a particular data instance to the cache allowing a user in this POC to
           move through members without "Loading..." alerts, even with a cleared
-          cache. <strong>Magic.</strong>
+          cache.
         </p>
         <p>
           Clicking too quickly will annoy Rick and the API will be throttled.
