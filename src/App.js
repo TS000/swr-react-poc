@@ -121,7 +121,7 @@ const App = () => {
           cache.
         </p>
         <p>
-          Clicking too quickly will annoy Rick and the API will be throttled.
+          Clicking the next member too quickly will annoy Rick and the API will be throttled.
         </p>
       </div>
     </div>
