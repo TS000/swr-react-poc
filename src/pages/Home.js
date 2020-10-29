@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const Home = ({ ...props}) => {
-    const {name, created} = props;
+    const { name, created } = props;
 
     return (
         <div className='Card'>
