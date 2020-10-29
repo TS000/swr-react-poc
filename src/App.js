@@ -25,7 +25,7 @@ if(isError){
   return (
     <div style={{ padding: 40 }}>
       <div className="App">
-        <h3>Subway Grocer</h3>
+        <h3>Smarties Grocery Store Empoyee Portal</h3>
         <button onClick={() => login()}>Login</button>
         <Router>
           <Link to="/">
