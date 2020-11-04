@@ -4,8 +4,7 @@ import * as initialD from '../util/initialData.json'
 function useMember(id) {
     const fetcher = (...arg) => fetch(...arg).then((res) => res.json());
     const { data, error, mutate } = useSWR(id,
-        fetcher,
-        { initialData: {initialD} }
+        fetcher
     );
     return {
         data: data,
