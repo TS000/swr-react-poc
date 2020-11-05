@@ -1,33 +1,11 @@
 import React from "react";
+import Member from "../components/Member";
 
 export const Home = ({ ...props }) => {
-  const { name, created, gender, species, status, location, image } = props;
-  console.log(props)
+  const { name, id, gender, image } = props;
 
   if (name) {
-    return (
-      <div className="Card">
-      <img src={image} alt={name}></img>
-        <h1>
-          <strong>Name</strong>: {name}
-        </h1>
-        <p>
-          <strong>Created</strong>: {created}
-        </p>
-        <p>
-          <strong>Gender</strong>: {gender}
-        </p>
-        <p>
-          <strong>Species</strong>: {species}
-        </p>
-        <p>
-          <strong>Status</strong>: {status}
-        </p>
-        <p>
-          <strong>Address</strong>: {location.name}
-        </p>
-      </div>
-    );
+    return <Member id={id} name={name} image={image} gender={gender} />;
   } else {
     return (
       <div className="Card">

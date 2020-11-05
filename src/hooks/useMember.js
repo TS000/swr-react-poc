@@ -1,5 +1,5 @@
 import useSWR from 'swr'
-import * as initialD from '../util/initialData.json'
+// import * as initialD from '../util/initialData.json'
 
 function useMember(id) {
     const fetcher = (...arg) => fetch(...arg).then((res) => res.json());

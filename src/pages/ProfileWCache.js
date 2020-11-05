@@ -1,7 +1,7 @@
 import React from "react";
-import { Member } from "../components/Member";
+import Member from "../components/Member";
 
-export const ProfileWCache = ({ ...props }) => {
+ export const ProfileWCache = ({ ...props }) => {
   return (
     <>
       <Member
