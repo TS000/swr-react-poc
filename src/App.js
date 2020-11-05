@@ -23,25 +23,6 @@ const App = () => {
     setCurrentMember(1);
   };
 
-  const formatData = () => {
-    const newName = data.name.toUpperCase();
-    mutate({ ...data, name: newName }, false);
-  };
-
-  const nextMember = () => {
-    if (currentMember >= 1) {
-      setCurrentMember(currentMember + 1);
-    }
-  };
-
-  const previousMember = () => {
-    if (currentMember <= 1) {
-      return;
-    } else {
-      setCurrentMember(currentMember - 1);
-    }
-  };
-
   const clearCache = () => {
     console.log(cache.get(urlKey))
     cache.clear();
@@ -53,10 +34,6 @@ const App = () => {
       <div className="App">
         <h3>Smarties Grocery Store Empoyee Portal</h3>
         <button onClick={() => login()}>Login</button>
-        <button onClick={() => formatData()}>Format</button>
-        <button onClick={() => previousMember()}>Previous Employee</button>
-        <button onClick={() => nextMember()}>Next Employee</button>
-        <button onClick={() => clearCache()}>Clear Cache</button>
         <Router>
           <Link to="/">
             <button>Home</button>
